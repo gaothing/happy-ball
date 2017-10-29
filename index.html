@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>抽奖</title>
+	</head>
+	<style type="text/css">
+		#background,#ball{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		#stop,#go{
+			float: left;
+			margin-left: 80px;
+			background: orange;
+			width: 60px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			color: #fff;
+			cursor: pointer;
+			border-radius: 10px;
+		}
+	</style>
+	<body>
+		<canvas id="background" width="300" height="400"></canvas>
+		<canvas id="ball" width="300" height="400"></canvas>
+		<canvas id="outball" width="70" height="40"></canvas>
+		<div id="go">开始</div>
+		<div id="stop">停止</div>
+	</body>
+</html>
+<script src="js/ball.js" type="text/javascript" charset="utf-8"></script>
