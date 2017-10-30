@@ -588,29 +588,43 @@ function go(){
 }
 //减慢求得弹高
 var t,s,time=6;
+//
+var stopFlag=false;
 function slow(){
 	ymin=ymin+10;
 	return ymax;
 }
 
 document.getElementById("go").onclick=function(){
-	 t=setInterval(go,time)
+	if(stopFlag){
+		return;
+	}else{
+		t=setInterval(go,time);
+	 	stopFlag=true;
+	}
+	
 }
 document.getElementById("stop").onclick=function(){
-	s=setInterval(slow,100);
+	if(stopFlag){
+		s=setInterval(slow,100);
 	//随机产生出球的编号
-	numbers=Math.ceil(Math.random()*26);
-	console.log(numbers)
-//	numbers=25
-	if(numbers==25){
-		outdata[0].cstart="#FFC500";
-		outdata[0].ostart="#FF9800";
-		outdata[0].nub=""
-	}else if(numbers==26){
-		outdata[0].cstart="#B7C1DB";
-		outdata[0].ostart="#2E6CA0";
-		outdata[0].nub=""
+		numbers=Math.ceil(Math.random()*26);
+		console.log(numbers)
+	//	numbers=25
+		if(numbers==25){
+			outdata[0].cstart="#FFC500";
+			outdata[0].ostart="#FF9800";
+			outdata[0].nub=""
+		}else if(numbers==26){
+			outdata[0].cstart="#B7C1DB";
+			outdata[0].ostart="#2E6CA0";
+			outdata[0].nub=""
+		}else{
+			outdata[0].nub=numbers;
+		}
+		stopFlag=false;
 	}else{
-		outdata[0].nub=numbers;
+		return;
 	}
+	
 }
